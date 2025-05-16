@@ -1,0 +1,1 @@
+docker build -t tonysstickbundlefinder/transcribe-and-search:v0.1.0 .

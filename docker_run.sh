@@ -1,0 +1,1 @@
+docker run --gpus all -p 7860:7860 --rm tonysstickbundlefinder/transcribe-and-search:v0.1.0
