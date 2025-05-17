@@ -34,18 +34,19 @@ This tool uses a locally run AI transcription model to do this automatically.
 
 ## 🚀 Quick Start - Docker Desktop
 
+ℹ️ Note: I have detailed two methods below, using either the UI or command line
+
+**UI Method** below uses the docker desktop user interface.
+
+**CLI Method** below uses the command line (EG: Command Prompt, Powershell) **This is recommended** and will be necessary to use the GPU for much faster 
+    transcription.
+
 ### 1. Install Docker Desktop
 - **Download**: [docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop/)
 - **Install**: Double-click the downloaded file and follow installation prompts
+- **Open**: Open Docker Desktop
 
-### 2. Enable GPU Support
-1. Open Docker Desktop
-2. Click ⚙️ **Settings** → **Resources** → **GPU**
-3. Check `Enable GPU support`
-4. Select your GPU(s) from the list
-5. Click **Apply & Restart**
-
-## 3. Get the Application
+### 2. Get this Container
 **UI Method**:
 1. Open Docker Desktop
 2. Go to **Images** tab
@@ -57,13 +58,16 @@ This tool uses a locally run AI transcription model to do this automatically.
 docker pull tonysstickbundlefinder/transcribe-and-search:v0.1.0
 ```
 
-## 4. Start the Application
+### 3. Run the Container
 **UI Method**:
+
+⚠️ WARNING: The UI method below does not allow the container to use your GPU. Unfortunately there is no option to use GPU 
+passthrough via the user interface. It's recommended that you use the command line interface below instead.
+
 1. In **Images** tab, find the pulled image
 2. Click **Run**
 3. Under **Optional settings**:
    - Ports: `7860:7860`
-   - GPU: Check `Use all available GPUs`
 4. Click **Run**
 
 **CLI Method**:  
@@ -71,14 +75,18 @@ docker pull tonysstickbundlefinder/transcribe-and-search:v0.1.0
 docker run --gpus all -p 7860:7860 --rm tonysstickbundlefinder/transcribe-and-search:v0.1.0
 ```
 
-## 5. Use the Web Interface
+ℹ️ Note: If you run into errors running this, it's possible you need to separately install the 
+[nvidia container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). 
+If you are not tech savy, just keep pasting the error messages into ChatGPT and it will be
+able to guide you through everything.
+
+### 4. Use the Web Interface
 1. Open your browser to: [http://localhost:7860](http://localhost:7860)
-2. **Upload** your video file
+2. Upload your video file
 3. Enter search terms (comma-separated)
 4. Click **Submit**
-5. Wait for processing and view results
-
-**Tip**: Both methods can be used interchangeably - the web interface remains the same once running.
+5. Wait for processing to complete
+6. View results
 
 ## 🛠️ Methodology
 
@@ -89,4 +97,4 @@ docker run --gpus all -p 7860:7860 --rm tonysstickbundlefinder/transcribe-and-se
     to identify when they occur.
 
 ## 📄 License
-This project is licensed under the **MIT License** - see [LICENSE](LICENSE) for details.
+This project is licensed under the **MIT License**.
