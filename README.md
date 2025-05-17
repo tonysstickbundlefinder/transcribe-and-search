@@ -77,7 +77,7 @@ docker run --gpus all -p 7860:7860 --rm tonysstickbundlefinder/transcribe-and-se
 
 ℹ️ Note: If you run into errors running this, it's possible you need to separately install the 
 [nvidia container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). 
-If you are not tech savy, just keep pasting the error messages into ChatGPT and it will be
+If you are not tech savvy, just keep pasting the error messages into ChatGPT and it will be
 able to guide you through everything.
 
 ### 4. Use the Web Interface
